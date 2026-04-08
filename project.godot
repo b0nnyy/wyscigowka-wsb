@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="WyscigowkaWSB"
+run/main_scene="uid://ilqeq8m2y2x2"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
