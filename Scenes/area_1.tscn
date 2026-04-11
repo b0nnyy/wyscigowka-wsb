@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dpsx4kw2opiqo" path="res://art/scena wyscigowka.png" id="1_cuj55"]
 [ext_resource type="PackedScene" uid="uid://qft83uwtkcl4" path="res://Scenes/player.tscn" id="2_jklmv"]
 [ext_resource type="Script" uid="uid://bfgboffb7dasn" path="res://Scripts/player.gd" id="3_kgqqh"]
+[ext_resource type="AudioStream" uid="uid://bdt7w23a8fj7r" path="res://music/mfcc-racing-racing-speed-action-music-290637.mp3" id="4_kgqqh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wp32v"]
 texture = ExtResource("1_cuj55")
@@ -6172,3 +6173,6 @@ script = ExtResource("3_kgqqh")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1795412186]
 position = Vector2(-1, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=129188003]
+stream = ExtResource("4_kgqqh")
