@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfcvdn00si5id"
-path="res://.godot/imported/Sprite-0002.png-3f75a666587006d70250c0c12a3ff6bf.ctex"
+uid="uid://brkig7r33wtu0"
+path="res://.godot/imported/Sprite2.png-311755adbee05b5241a95a2849a200ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Sprite-0002.png"
-dest_files=["res://.godot/imported/Sprite-0002.png-3f75a666587006d70250c0c12a3ff6bf.ctex"]
+source_file="res://art/Sprite2.png"
+dest_files=["res://.godot/imported/Sprite2.png-311755adbee05b5241a95a2849a200ad.ctex"]
 
 [params]
 

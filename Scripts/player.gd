@@ -8,11 +8,17 @@ func _ready():
 	position.x = lanes[current_lane]
 
 func _input(event):
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("move_left"):
 		current_lane = max(0, current_lane - 1)
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("move_right"):
 		current_lane = min(2, current_lane + 1)
 
 func _process(delta):
 	var target_x = lanes[current_lane]
 	position.x = lerp(position.x, target_x, speed * delta)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Kolizja")
+	if body.is_in_group("enemy"):
+		get_tree().current_scene.game_over()

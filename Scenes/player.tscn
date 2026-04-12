@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://qft83uwtkcl4"]
 
+[ext_resource type="Script" uid="uid://bfgboffb7dasn" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cphjdpdbmmi3k" path="res://art/cars.png" id="1_v0iea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
 size = Vector2(23, 50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
+size = Vector2(25, 51)
+
 [node name="Player" type="CharacterBody2D" unique_id=948308889]
+script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1721813004]
 texture = ExtResource("1_v0iea")
@@ -16,3 +21,11 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=535600204]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_v0iea")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1958560587]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1923802432]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_6t5aa")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
