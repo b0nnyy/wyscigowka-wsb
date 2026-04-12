@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var game_over_label = $CanvasLayer/GameOverLabel
+@onready var game_over_label = $CanvasLayer/EndGameLabel
+@onready var restart_label = $CanvasLayer/RestartLabel
 @onready var road1 = $Road1
 @onready var road2 = $Road2
 
@@ -14,9 +15,14 @@ var spawn_delay = 1.2
 
 var lanes = [-240.0, 0.0, 240.0]
 
+func _ready():
+	game_over_label.visible = false
+	restart_label.visible = false
+
 func _process(delta):
 	if is_game_over:
 		return
+
 	road1.position.y += speed * delta
 	road2.position.y += speed * delta
 
@@ -42,16 +48,18 @@ func spawn_enemy():
 	add_child(enemy)
 
 func game_over():
-	print("FUNKCJA GAME_OVER ZOSTAŁA URUCHOMIONA!") # To musi się pojawić w konsoli
+	if is_game_over:
+		return
+
+	print("GAME OVER!")
 	is_game_over = true
 	
-	if game_over_label:
-		game_over_label.visible = true
-	else:
-		print("BŁĄD: Nie znaleziono GameOverLabel!")
-	Engine.time_scale = 0
+	game_over_label.visible = true
+	restart_label.visible = true
 	
+	Engine.time_scale = 0
+
 func _input(event):
 	if is_game_over and event.is_action_pressed("restart"):
-		Engine.time_scale = 1.0;
+		Engine.time_scale = 1.0
 		get_tree().reload_current_scene()
