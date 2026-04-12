@@ -19,6 +19,15 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Kolizja")
 	if body.is_in_group("enemy"):
-		get_tree().current_scene.game_over()
+		print("Trafiony! Wywołuję game_over...")
+		
+		# Przeszukujemy drzewo w górę, aż znajdziemy skrypt z game_over
+		var p = get_parent()
+		while p != null:
+			if p.has_method("game_over"):
+				p.game_over()
+				return # Znaleźliśmy, wychodzimy
+			p = p.get_parent()
+			
+		print("BŁĄD: Przeszukałem całe drzewo i nikt nie ma funkcji game_over")

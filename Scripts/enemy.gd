@@ -10,7 +10,7 @@ var textures = [
 var speed = 500.0
 
 func _ready():
-	speed = randf_range(550.0, 700.0)
+	speed = randf_range(550.0, 1000.0)
 	sprite.texture = textures[randi() % textures.size()]
 
 func _process(delta):
